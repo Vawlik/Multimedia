@@ -1,0 +1,24 @@
+.custom-slider {
+    -fx-background-color: transparent;
+}
+
+.custom-slider .track {
+    -fx-background-color: #c0c0c0;
+    -fx-background-radius: 5;
+    -fx-pref-height: 10;
+}
+
+.custom-slider .thumb {
+    -fx-background-color: #007bff; /* Цвет ползунка */
+    -fx-background-radius: 10;
+    -fx-pref-height: 20;
+    -fx-pref-width: 20;
+}
+
+.custom-slider .thumb:hover {
+    -fx-background-color: #0056b3; /* Цвет ползунка при наведении */
+}
+
+.custom-slider .thumb:pressed {
+    -fx-background-color: #004085; /* Цвет ползунка при нажатии */
+}

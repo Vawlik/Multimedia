@@ -1,0 +1,74 @@
+/* style.css */
+
+* {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px; /* Задайте размер шрифта по умолчанию */
+}
+
+.anchor-pane {
+    -fx-background-color: #e9ecef; /* Светлый фон */
+}
+
+.menu-bar {
+    -fx-background-color: #6c757d; /* Серый цвет */
+}
+
+.menu {
+    -fx-text-fill: white;
+}
+
+.menu-item {
+    -fx-text-fill: white;
+}
+
+.menu-item:hover {
+    -fx-background-color: #5a6268; /* Тёмно-серый при наведении */
+}
+
+.label {
+    -fx-text-fill: #343a40; /* Тёмный цвет текста */
+}
+
+.image-view {
+    -fx-border-color: #ced4da; /* Светло-серый для границы */
+    -fx-border-width: 1px; /* Добавлено "px" */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+}
+
+.button {
+    -fx-background-color: #6c757d; /* Серый цвет кнопки */
+    -fx-text-fill: white;
+    -fx-padding: 8 12 8 12;
+    -fx-background-radius: 5;
+}
+
+.button:hover {
+    -fx-background-color: #5a6268; /* Темнее серый при наведении */
+}
+
+.text-field {
+    -fx-border-color: #ced4da; /* Светло-серый */
+    -fx-border-radius: 5;
+    -fx-background-color: white;
+}
+
+.slider {
+    -fx-background-color: transparent;
+}
+
+.slider .thumb {
+    -fx-background-color: #6c757d; /* Серый цвет для ползунка */
+}
+
+.slider .track {
+    -fx-background-color: #5a6268; /* Тёмно-серый */
+    -fx-background-radius: 5;
+}
+
+.slider .track:vertical {
+    -fx-background-color: transparent;
+}
+
+.slider .track:horizontal {
+    -fx-background-color: transparent;
+}

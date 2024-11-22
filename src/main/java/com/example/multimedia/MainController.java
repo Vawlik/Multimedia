@@ -95,7 +95,7 @@ public class MainController {
                 originalImage = new Image(file.toURI().toString());
                 originalImageView.setImage(originalImage);
             } catch (Exception e) {
-                e.printStackTrace();
+                showAlertError(e.getMessage(),"Изображение отсутствует, попробуйте еще раз");
             }
         }
     }
@@ -106,15 +106,19 @@ public class MainController {
         if (clipboard.hasImage()) {
             Image clipboardImage = clipboard.getImage();
             originalImageView.setImage(clipboardImage);
-            originalImage = clipboardImage;  // если нужно сохранить оригинал
+            originalImage = clipboardImage;
         } else {
-            // Выводим сообщение, если содержимое буфера не является изображением
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Ошибка");
-            alert.setHeaderText("Содержимое буфера обмена не является изображением");
-            alert.setContentText("Пожалуйста, скопируйте изображение и попробуйте снова.");
-            alert.showAndWait();
+            showAlertError("Содержимое буфера обмена не является изображением",
+                    "Пожалуйста, скопируйте изображение и попробуйте снова.");
         }
+    }
+
+    private static void showAlertError(String headerText, String contentText) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Ошибка");
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        alert.showAndWait();
     }
 
     @FXML
@@ -141,7 +145,7 @@ public class MainController {
                 try {
                     ImageIO.write(SwingFXUtils.fromFXImage(processedImageView.getImage(), null), fileChooser.getSelectedExtensionFilter().getExtensions().getFirst().substring(2), file);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    showAlertError(e.getMessage(),"Ошибка чтения изображения, попробуйте другой формат");
                 }
             }
         }

@@ -7,7 +7,7 @@ import javafx.scene.image.WritableImage;
 
 public class MorphologyProcessor {
 
-    private boolean isMaskColorBlack;
+    private final boolean isMaskColorBlack;
 
     public MorphologyProcessor(boolean isMaskColorBlack) {
         this.isMaskColorBlack = isMaskColorBlack;

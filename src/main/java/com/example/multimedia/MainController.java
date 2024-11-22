@@ -49,6 +49,14 @@ public class MainController {
     @FXML
     private Button toggleMaskColorButton;
 
+    private static void showAlertError(String headerText, String contentText) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Ошибка");
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        alert.showAndWait();
+    }
+
     @FXML
     private void selectDilation() {
         selectedMethod = "Дилатация";
@@ -85,7 +93,6 @@ public class MainController {
         applySelectedMorphology();
     }
 
-
     @FXML
     private void openImage() {
         FileChooser fileChooser = new FileChooser();
@@ -95,7 +102,7 @@ public class MainController {
                 originalImage = new Image(file.toURI().toString());
                 originalImageView.setImage(originalImage);
             } catch (Exception e) {
-                showAlertError(e.getMessage(),"Изображение отсутствует, попробуйте еще раз");
+                showAlertError(e.getMessage(), "Изображение отсутствует, попробуйте еще раз");
             }
         }
     }
@@ -111,14 +118,6 @@ public class MainController {
             showAlertError("Содержимое буфера обмена не является изображением",
                     "Пожалуйста, скопируйте изображение и попробуйте снова.");
         }
-    }
-
-    private static void showAlertError(String headerText, String contentText) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Ошибка");
-        alert.setHeaderText(headerText);
-        alert.setContentText(contentText);
-        alert.showAndWait();
     }
 
     @FXML
@@ -145,7 +144,7 @@ public class MainController {
                 try {
                     ImageIO.write(SwingFXUtils.fromFXImage(processedImageView.getImage(), null), fileChooser.getSelectedExtensionFilter().getExtensions().getFirst().substring(2), file);
                 } catch (IOException e) {
-                    showAlertError(e.getMessage(),"Ошибка чтения изображения, попробуйте другой формат");
+                    showAlertError(e.getMessage(), "Ошибка чтения изображения, попробуйте другой формат");
                 }
             }
         }
